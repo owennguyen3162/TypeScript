@@ -131,10 +131,31 @@ interface Options {
 }
 
 const configure = (x: Options | "auto") => {
-    console.log(x);
-}
+  console.log(x);
+};
 
-configure({width: 30});
+configure({ width: 30 });
 configure("auto");
 // configure("error");
 
+// declare function handleRequest(url: string, method: "GET" | "POST"): void;
+
+// const req = { url: "https://example.com", method: "POST" };
+
+// handleRequest(req.url, req.method as "POST");
+function doSomething(x: string | null) {
+  if (x === null) {
+    console.log("Hello, " + "NUll");
+  } else {
+    console.log("Hello, " + x.toUpperCase());
+  }
+}
+
+doSomething(null);
+
+function liveDangerously(x?: number | null) {
+  // No error
+  return x ? console.log(x!.toFixed()) : console.log("k co gia tri truyen vao"); //x! la k chap nhan gia tri null
+}
+
+liveDangerously(null);
